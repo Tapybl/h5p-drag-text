@@ -443,6 +443,7 @@ H5P.DragText = (function ($, Question, ConfirmationDialog) {
       // Checking answer button
       self.addButton('check-answer', self.params.checkAnswer, function () {
         self.answered = true;
+        self.trigger('click', self);
         self.removeAllElementsFromDragControl();
 
         if (!self.showEvaluation()) {
@@ -1134,7 +1135,8 @@ H5P.DragText = (function ($, Question, ConfirmationDialog) {
 
       // Shows evaluation text
       self.showEvaluation();
-    } 
+
+    }
     else {
       //Hides "retry" and "show solution" buttons.
       self.hideButton('try-again');
